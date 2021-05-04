@@ -115,3 +115,5 @@ data/
 dist
 esm
 temp
+dist-ssr
+*.local
