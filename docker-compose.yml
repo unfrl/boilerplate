@@ -1,0 +1,47 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:11
+    ports:
+      - 5432:5432
+    environment:
+      - 'POSTGRES_PASSWORD=local'
+      - 'POSTGRES_USER=local'
+      - 'POSTGRES_DB=dev-database'
+
+  adminer:
+    container_name: adminer
+    image: wodby/adminer:4.7
+    ports:
+      - 9000:9000
+    environment:
+      - 'ADMINER_DEFAULT_DB_DRIVER=pgsql'
+      - 'ADMINER_DEFAULT_DB_HOST=postgres'
+      - 'ADMINER_DEFAULT_DB_NAME=dev-database'
+    depends_on:
+      - postgres
+#   redis:
+#     container_name: redis
+#     image: redis:5.0.6
+#     ports:
+#       - 6379:6379
+
+#   redis_commander:
+#     container_name: redis_commander
+#     image: rediscommander/redis-commander
+#     environment:
+#       - "REDIS_HOST=redis"
+#       - "REDIS_PORT=6379"
+#     ports:
+#       - "8081:8081"
+#     depends_on:
+#       - redis
+
+#   maildev:
+#     container_name: maildev
+#     image: maildev/maildev:2.0.0-beta3
+#     ports:
+#       - "1080:1080"
+#       - "1025:1025"
