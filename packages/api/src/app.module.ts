@@ -8,15 +8,13 @@ import { AuthController } from './controllers';
 import { AuthService, JwtStrategy, UserService } from './services';
 import { authConfig, dbConfig } from './config';
 
-const entities = [User];
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       ...dbConfig,
-      entities,
+      autoLoadEntities: true,
     }),
-    TypeOrmModule.forFeature(entities),
+    TypeOrmModule.forFeature([User]),
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: authConfig.secret,
