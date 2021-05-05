@@ -8,6 +8,8 @@ From root, run `yarn install`
 
 ## Running
 
+First run `docker-compose up` to run database and adminer client.
+
 To run all projects at once, run `yarn start:all`.
 
 Just the app: `yarn start:app`
