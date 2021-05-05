@@ -17,7 +17,6 @@ export const theme = (darkMode: boolean) =>
         disableElevation: true,
       },
     },
-    // TODO: testing using the system font
     typography: {
       fontFamily: [
         '-apple-system',

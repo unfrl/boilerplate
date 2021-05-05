@@ -15,6 +15,7 @@ export const NotFound: React.FC = () => {
   const classes = useStyles();
 
   return (
+    // TODO: add in this image
     <Container maxWidth="md" component={Paper} className={classes.container}>
       <img src="images/not-found.svg" alt="Not Found" />
     </Container>
